@@ -5,13 +5,15 @@
 int main() {
 
     //declaração das variáveis a serem utilizadas durante o código
-    char estadocarta1, estadocarta2;              
+    char estadocarta1, estadocarta2;
     char codigocarta1[20], codigocarta2[20];
     char cidadecarta1[20], cidadecarta2[20];
     int populacaocarta1, populacaocarta2;
     float areacarta1, areacarta2;
     float pibcarta1, pibcarta2;
     int turisticoscarta1, turisticoscarta2;
+    float densidadecarta1, densidadecarta2;
+    float percapita1, percapita2;
 
 
     printf ("Bem-vindos ao jogo de Super Trunfo! \n");  //mensagem inicial do jogo
@@ -19,7 +21,7 @@ int main() {
 
     //solicitação dos dados da 1º carta ao usuário
 
-    printf("\nDigite uma letra para representar o estado: ");   
+    printf("\nDigite uma letra para representar o estado: ");
     scanf(" %c", &estadocarta1);
 
     printf("Digite o código da carta: ");
@@ -40,11 +42,14 @@ int main() {
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &turisticoscarta1);
 
+    densidadecarta1 =  populacaocarta1 / areacarta1;            //cálculo da densidade populacional
+    percapita1 = (pibcarta1 * 1000000000) / populacaocarta1;    //cálculo do PIB per capita
+
     printf("\n** Agora vamos cadastrar a 2º carta **\n");   //informação do cadastramento da 2º carta
 
     //solicitação dos dados da 2º carta ao usuário
 
-    printf("\nDigite uma letra para representar o estado: ");   
+    printf("\nDigite uma letra para representar o estado: ");
     scanf(" %c", &estadocarta2);
 
     printf("Digite o código da carta: ");
@@ -65,6 +70,10 @@ int main() {
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &turisticoscarta2);
 
+    densidadecarta2 = populacaocarta2 / areacarta2;             //cálculo da densidade populacional
+    percapita2 = (pibcarta2 * 1000000000) / populacaocarta2;    //cálculo do PIB per capita
+
+
     printf("\n** AGORA VAMOS VER O RESULTADO DAS CARTAS CADASTRADAS **\n");     //mensagem de finalização do cadastramento
 
     //visualização das cartas cadastradas
@@ -77,6 +86,8 @@ int main() {
     printf("Área: %.2f Km²\n", areacarta1);
     printf("PIB: %.2f bilhões de reais\n", pibcarta1);
     printf("Número de pontos turísticos: %d \n", turisticoscarta1);
+    printf("Densidade populacional: %.2f hab/km² \n", densidadecarta1);
+    printf("PIB per capita: %.2f reais \n", percapita1);
 
     printf("\nCarta 2: \n");
     printf("Estado: %c \n", estadocarta2);
@@ -86,6 +97,8 @@ int main() {
     printf("Área: %.2f Km²\n", areacarta2);
     printf("PIB: %.2f bilhões de reais\n", pibcarta2);
     printf("Número de pontos turísticos: %d \n", turisticoscarta2);
+    printf("Densidade populacional: %.2f hab/km² \n", densidadecarta2);
+    printf("PIB per capita: %.2f reais \n", percapita2);
 
     return 0;
 }
